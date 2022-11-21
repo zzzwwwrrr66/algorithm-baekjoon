@@ -13,10 +13,22 @@ output ex)
 const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 
-const input = fs.readFileSync(path).toString().split('\n');
+const [a, b] = fs.readFileSync(path).toString().split('\n');
 
-console.log(input);
+const bucketResult = Array.from({length: 4}, ()=>{});
 
-const bucket = Array.from({length: 4}, ()=>{});
-console.log("bucket", bucket);
+function getDigit(num , i) {
+  const result = Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+  return result;
+}
 
+function resultFnc(a, b) {
+  return bucketResult.map((v, i)=>{
+    if(i === bucketResult.length - 1) {
+      return a * b;
+    }
+    return a * getDigit(b, i);
+  })
+}
+const result = resultFnc(a,b);
+result.forEach(v=>console.log(v));
