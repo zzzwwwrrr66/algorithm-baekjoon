@@ -37,7 +37,15 @@ Yes
 const fs = require('fs');
 const path = process.platform === 'linux' ? 0 : './input.txt';
 const input = fs.readFileSync(path).toString().split('\n');
-console.log(input);
 
-const sum = input[0];
-const leng = input[1];
+const totalPriceA = parseInt(input[0], 10);
+const totalPriceB = input.filter((v, i)=>{
+  if(i >= 2) {
+    return v;
+  }
+})
+.map(v=>v.split(" "))
+.map(v=>v[0] * v[1])
+.reduce((a, b)=> a + b);
+
+console.log(totalPriceA === totalPriceB ? "Yes" : "No");
