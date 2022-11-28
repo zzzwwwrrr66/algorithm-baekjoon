@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = process.platform === 'linux' ? 0 : './input.txt';
 const input = fs.readFileSync(path).toString().trim().split('\n').slice(1);
 let result;
+
 result = input.map((v)=>{
   let arr = v.split(" ").map(v=>Number(v)); 
   let n = arr.shift();
@@ -20,6 +21,5 @@ result = input.map((v)=>{
   
   return `${(Math.round( ((cnt / n * 100) + Number.EPSILON) * 1000) / 1000).toFixed(3)}%\n`;
 });
-
 console.log(result.reduce((a,b)=>a+b));
 
