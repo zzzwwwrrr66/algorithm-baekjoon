@@ -30,9 +30,22 @@ const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 
 const input = fs.readFileSync(path).toString().trim().toLowerCase();
+// 배열의[] bucket 을 만든다 (알파벳은 26개)
 const result = new Array(26).fill(0);
+let isSame = false;
 
-for (let i = 0; i < input.length; i++) {
-  result[input.charCodeAt(i) - 97] ++;
+input.split('').forEach((v, i) => {
+  let alphabetIndex = v.charCodeAt(0) - 97;
+  result[alphabetIndex]++;
+});
+const maxAlphabet = Math.max(...result); // 3
+const maxAlphabetIndex = result.indexOf(maxAlphabet); // 0
+
+for(let k = 0; k < result.length; k++) {
+  if(result[k] === maxAlphabet && maxAlphabetIndex != k) {
+    isSame = true;
+    break;
+  }
 }
-console.log("🚀 ~ file: index.js ~ line 41 ~ result", result)
+
+console.log(isSame ? '?' : String.fromCharCode( maxAlphabetIndex + 65));
