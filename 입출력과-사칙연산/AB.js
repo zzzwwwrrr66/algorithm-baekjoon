@@ -7,7 +7,7 @@
 21
 2
 1
- */
+ */ //
 const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './A+B/input.txt';
 
