@@ -4,7 +4,7 @@ const path = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 const input = fs.readFileSync(path).toString().trim().split('\n').map((v)=>v.split(" ").map(v=>Number(v))) ;
 console.log(input);
 let n = Number(input.shift());
-let paper = new Array(101).fill(0).map(() => new Array(101).fill(0));
+let paper = new Array(101).fill(0).map(() => new Array(10).fill(0));
 let x, y;
 let tmp = [];
 const areaNum = 10;
@@ -18,5 +18,5 @@ for(let m = 0; m < n; m++) {
         }    
     }
 }
-
+console.log(paper)
 console.log(paper.flat().filter(v=>v===1).length);
