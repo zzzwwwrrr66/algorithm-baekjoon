@@ -1,5 +1,5 @@
 # todo 
-[단계별로 풀어보기 12 step 까지 풀어보기](https://www.acmicpc.net/step)   
+[단계별로 풀어보기 12 step 까지 풀어보기](https://www.acmicpc.net/step) / finish with till 11step
 ▼   
 [알고리즘 기초 1/2](https://code.plus/course/41)   
 ▼   
